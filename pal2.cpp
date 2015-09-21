@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-bool esPalindromo(string cadena, int size){
+bool esPalindromo(string *cadena, int size){
     for(int i = 0; i < size/2; i++)
         if(cadena[i] != cadena[size-i-1]) 
             return false;
@@ -10,8 +10,9 @@ bool esPalindromo(string cadena, int size){
 int main(){
     string cadena;
     cout << "Ingresa la palabra: ";
-    getline(cin,cadena);    
-    esPalindromo(cadena,cadena.length()) ? 
+    getline(cin,cadena); 
+    string *pcadena = & cadena;
+    esPalindromo(pcadena,cadena.length()) ? 
         cout << "\nEs palindromo \n" : cerr << "\nNo es palindromo \n";    
     cin.get();
     cin.get();
